@@ -1,0 +1,82 @@
+package customerinvoice;
+import  java.util.Scanner;
+public class CustomerInvoice {
+
+    private double cost;
+    private int quantity;
+
+public String getAddress(String address){
+    return address;
+}
+public int getNumber(int telephone){
+    return telephone;
+}
+public  String getDesc(String description){
+    return description;
+}
+public String getName(String name){
+    return name;
+}
+public int getQua(int quantity){
+    return quantity;
+}
+public static double getCost(double cost, int quantity){
+    double cost1 = quantity*cost;
+    return cost1;
+}
+public int newQua(int quantity, int prev){
+    this.quantity=quantity;
+    quantity = prev - quantity;
+    if (quantity <0) System.out.println("Insufficient quantity.");
+    return quantity;
+}
+
+    public static void main(String[] args) {
+        String address;
+        String companyName;
+        double price ;
+        String telephone;
+        String product;
+        String description;
+        String name;
+        double cost;
+        int quantity;
+        System.out.println( "Enter a string : ");
+        Scanner scanner = new Scanner(System.in); 
+        String s1= scanner.nextLine();
+        String s2 = "exit";
+        while(!s1.equals(s2)){
+           System.out.println("New customer !");
+           System.out.println("Enter name :");
+           name = scanner.nextLine();
+           System.out.println("Enter phone number :");
+           telephone = scanner.nextLine();
+           System.out.println("Enter company's name: ");
+           companyName = scanner.nextLine();
+           System.out.println("Enter the quantity and the product :");
+           quantity = scanner.nextInt();
+           product = scanner.nextLine();
+           System.out.println("Enter product price:");
+           price = scanner.nextDouble();
+           cost = quantity * price;
+           System.out.println("Client's Invoice :");
+           System.out.println("Name :" + name);
+           System.out.println("Phone number :" + telephone);
+           System.out.println("Brand :" + companyName);
+           System.out.println("Items :" + quantity +" " + "of" + product);
+           System.out.println("The cost of the order is :" + cost);  
+           System.out.println( "Enter a string : ");//Den mu diavazei pote to neo sting:(
+           s1 = scanner.nextLine();
+           if (s1.equals("exit")){
+               break;
+           }
+        }
+        System.out.println("Thanks and goodbye ! ");
+        
+         
+         
+    } 
+}
+/* Sta paradeigmata evala ta classes kai ta methods alla panta mu ebgaze error 
+o compiler kai osa prospathisa den diksane tipota, giayto einai apla ta get.
+*/
