@@ -1,0 +1,56 @@
+package tictactoe;
+public class TicTac {
+    private String[][] surface; 
+    private char player;
+    private static final int ROW=3;
+    private static final int CLMN=3;
+    private String register = "\\s{3}";
+       
+public void ksekinaSurface(){
+    surface = new String[ROW][CLMN];
+}
+
+public void neoGame(){
+    for(int i =0; i<ROW; i++){
+        for(int j=0; j<CLMN; j++){
+            surface[i][j]= "  ";
+        }
+    }
+}
+
+public void kaneGame(int i, int j, String player){
+    if(this.surface[i][j].matches(register))
+        surface[i][j] = " "+ player + " ";
+}
+public boolean telos(){
+    for(int i=0; i<ROW; i++){
+       if(!surface[i][0].matches(register)&& surface[i][0].equals(surface[i][1]) && surface[i][1].equals(surface[i][2])){
+           return true; //koitaw tis seires
+    }
+}   for(int j=0; j<CLMN; j++){
+        if(!surface[0][j].matches(register)&& surface[0][j].equals(surface[1][j]) && surface[1][j].equals(surface[2][j])){
+            return true; //elegxw tis stiles
+        }
+}  if(!surface[0][0].matches(register)&& surface[0][0].equals(surface[1][1]) && surface[1][1].equals(surface[2][2])){
+        return true; //elegxw tis diagwnious
+}
+        //an den kerdise kanenas
+        return !surface[0][2].matches(register)&& surface[0][2].equals(surface[1][1]) && surface[1][1].equals(surface[2][0]);
+}
+public String dikseEpifaneia(){
+    String print = " ";
+    for(int i =0; i<ROW; i++){
+        for(int j=0; j<CLMN; j++){
+            if(j != CLMN-1)
+            print += surface[i][j] + "|";             
+            else
+                print += surface[i][j];
+        
+}   if(i != CLMN-1)
+        print += "\n---+---+---\n";
+}
+        return print;
+}
+}
+
+
